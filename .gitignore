@@ -373,3 +373,4 @@ FodyWeavers.xsd
 
 # Migrations from Entity Framework
 Migrations/
+/NorthWind_CS/appsettings.json
