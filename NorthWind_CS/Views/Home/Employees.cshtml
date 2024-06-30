@@ -1,5 +1,38 @@
-﻿@{
+﻿@model IEnumerable<NorthWind_CS.Models.Employee>
+
+@{
     ViewData["Title"] = "Employees";
 }
 <h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Title</th>
+            <th>Hire Date</th>
+            <th>Home Phone</th>
+            <th>Extension</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.LastName</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.Title</td>
+                <td>@employee.HireDate.ToString()</td>
+                <td>@employee.HomePhone</td>
+                <td>@employee.Extension</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = employee.EmployeeId })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = employee.EmployeeId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
